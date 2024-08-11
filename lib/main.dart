@@ -1,0 +1,98 @@
+import 'package:camera/camera.dart';
+import 'package:flutter/material.dart';
+import 'package:deep_scan/constants.dart';
+import 'package:deep_scan/screens/camera_screen.dart';
+import 'package:deep_scan/screens/homepage_screen.dart';
+import 'package:deep_scan/screens/scan_screen.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+//import 'package:firebase_core/firebase_core.dart';
+
+void main() async {
+  // Ensure that plugin services are initialized
+  WidgetsFlutterBinding.ensureInitialized();
+  // Obtain a list of available cameras
+  //load env file
+  await dotenv.load(fileName: ".env");
+
+  final cameras = await availableCameras();
+  // try {
+  //   await Firebase.initializeApp(
+  //     options: FirebaseOptions(
+  //       apiKey: "AIzaSyAP2lx9LsbBKYetmG3AcZTptfX0Go496H8",
+  //       authDomain: "deepscan-5617d.firebaseapp.com",
+  //       projectId: "deepscan-5617d",
+  //       storageBucket: "deepscan-5617d.appspot.com",
+  //       messagingSenderId: "669868430784",
+  //       appId: "1:669868430784:web:0894316528d9129b1ce425",
+  //     ),
+  //   );
+  //   print("Firebase initialized successfully");
+  // } catch (e) {
+  //   print("Failed to initialize Firebase: $e");
+  // }
+
+  // Pass the cameras to the app
+  runApp(
+    MyApp(
+      cameras: cameras,
+    ),
+  );
+}
+
+class MyApp extends StatelessWidget {
+  final List<CameraDescription> cameras;
+  const MyApp({super.key, required this.cameras});
+
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      routes: {
+        '/': (context) => const BasePage(
+              body: HomepageScreen(),
+            ),
+        '/scan_screen': (context) => const BasePage(
+              body: ScanScreen(),
+            ),
+        '/camera_screen': (context) => CameraScreen(
+              cameras: cameras,
+            ),
+      },
+    );
+  }
+}
+
+class BasePage extends StatelessWidget {
+  const BasePage({super.key, required this.body});
+  final Widget body;
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: AppColors.background,
+      appBar: AppBar(
+        backgroundColor: AppColors.background,
+        leading: const Padding(
+          padding: EdgeInsets.only(left: 20.0),
+          child: Icon(Icons.menu),
+        ),
+        actions: const [
+          Padding(
+            padding: EdgeInsets.only(right: 20.0),
+            child: CircleAvatar(
+              backgroundColor: Colors.blue,
+            ),
+          )
+        ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: AppColors.myPurple,
+        foregroundColor: Colors.white,
+        onPressed: () {},
+        child: const Icon(Icons.add),
+      ),
+      body: body,
+    );
+  }
+}

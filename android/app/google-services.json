@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "669868430784",
+    "project_id": "deepscan-5617d",
+    "storage_bucket": "deepscan-5617d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:669868430784:android:dccfbc4f99cf96881ce425",
+        "android_client_info": {
+          "package_name": "com.example.deep_scan"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8Lu1XeoYdW5QMNRGXOKTusUgSu-IDcnE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

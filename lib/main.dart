@@ -5,31 +5,22 @@ import 'package:deep_scan/screens/camera_screen.dart';
 import 'package:deep_scan/screens/homepage_screen.dart';
 import 'package:deep_scan/screens/scan_screen.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-//import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
 void main() async {
   // Ensure that plugin services are initialized
   WidgetsFlutterBinding.ensureInitialized();
   // Obtain a list of available cameras
   //load env file
+
   await dotenv.load(fileName: ".env");
 
   final cameras = await availableCameras();
-  // try {
-  //   await Firebase.initializeApp(
-  //     options: FirebaseOptions(
-  //       apiKey: "AIzaSyAP2lx9LsbBKYetmG3AcZTptfX0Go496H8",
-  //       authDomain: "deepscan-5617d.firebaseapp.com",
-  //       projectId: "deepscan-5617d",
-  //       storageBucket: "deepscan-5617d.appspot.com",
-  //       messagingSenderId: "669868430784",
-  //       appId: "1:669868430784:web:0894316528d9129b1ce425",
-  //     ),
-  //   );
-  //   print("Firebase initialized successfully");
-  // } catch (e) {
-  //   print("Failed to initialize Firebase: $e");
-  // }
+
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 
   // Pass the cameras to the app
   runApp(

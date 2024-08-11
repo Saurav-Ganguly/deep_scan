@@ -60,11 +60,7 @@ Get detailed instructions on:
 ### 🏠 Healthify Me!
 Get homemade recipes to recreate products healthily.
 
-![Healthify Me](screenshots/helthify.jpeg)
-
 <img src="screenshots/helthify.jpeg" width="300" />
-
-
 
 ### 🌐 Web Integration
 Check out our [web app](https://deepscan-5617d.web.app/) for product rankings and more!
@@ -86,7 +82,7 @@ Check out our [web app](https://deepscan-5617d.web.app/) for product rankings an
 1. Clone the repository
 2. Install dependencies: `flutter pub get`
 3. Run the app: `flutter run`
-4. Change the .env.example to .env
+4. Change the .env.example to .env and add your gemini ai api key
 
 
 ## 🙏 Acknowledgments

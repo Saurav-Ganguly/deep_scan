@@ -1,4 +1,5 @@
 import 'package:camera/camera.dart';
+import 'package:deep_scan/services/firebase_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
@@ -31,11 +32,12 @@ class _AnalyserScreenState extends State<AnalyserScreen> {
   List<Ingredient>? ingredients;
   late GenerativeModel model;
   final geminiService = GeminiService();
+  final firebaseService = FirebaseService();
   String? nutrients;
   String? ingredientDeepAnalysis;
   String? ecoDeepAnalysis;
   String? howTo;
-  // String? productURL;
+
   Recipe? recipe;
   bool isLoading = false;
   bool canTalk = false;
@@ -67,9 +69,11 @@ class _AnalyserScreenState extends State<AnalyserScreen> {
       }
     });
 
-    _initializeIngredient();
-    _initializeNutrient();
-    _initializeHowTo();
+    if (product != null) {
+      _initializeIngredient();
+      _initializeNutrient();
+      _initializeHowTo();
+    }
   }
 
   Future<void> _initializeIngredientAnalysis() async {
@@ -106,8 +110,10 @@ class _AnalyserScreenState extends State<AnalyserScreen> {
     setState(() {
       if (result != null) {
         ingredients = result;
+        product!.ingredients = ingredients;
       }
     });
+    firebaseService.uploadScannedProduct(product!);
   }
 
   Future<void> _initializeNutrient() async {

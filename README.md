@@ -10,12 +10,12 @@ Deep Scan is a cutting-edge Flutter app that brings the power of AI to your fing
 ### 🔍 Advanced Product Scanning
 Scan food, cosmetics, supplements, and more! Our app uses Google's Gemini AI to provide in-depth analysis of your products.
 
-![Scan](screenshots/product_scan.jpg)
+<img src="screenshots/product_scan.jpg" width="300" />
 
 ### 🧪 Ingred-O-Meter
 Get an instant safety percentage for ingredients. Higher is safer! 
 
-![Ingred-O-Meter](screenshots/scanned.jpeg)
+<img src="screenshots/scanned.jpeg" width="300" />
 
 ### 🌿 Eco-O-Meter
 Discover how eco-friendly your products are with our Eco-O-Meter.
@@ -30,7 +30,8 @@ Know where your products are manufactured.
 - Healthier alternatives suggested
 - Potential allergy warnings
 
-![Eco-O-Meter](screenshots/ingredient.jpeg)
+<img src="screenshots/ingredient.jpeg" width="300" />
+
 
 ### 🍎 Nutritional Deep Dive (for food items)
 - Calorie content
@@ -39,7 +40,8 @@ Know where your products are manufactured.
 - Allergen information
 - Comparative analysis and recommendations
 
-![Eco-O-Meter](screenshots/nutirition.jpeg)
+<img src="screenshots/nutirition.jpeg" width="300" />
+
 
 ### 📖 How-to-Use Guide
 Get detailed instructions on:
@@ -49,7 +51,7 @@ Get detailed instructions on:
 - Storage instructions
 - Contact information
 
-![Eco-O-Meter](screenshots/how_to_use.jpeg.jpeg)
+<img src="screenshots/how_to_use.jpeg" width="300" />
 
 ### 🔬 Advanced Analyses
 - Ingredient deep dive: Side effects, regulatory compliance, and more
@@ -60,11 +62,14 @@ Get homemade recipes to recreate products healthily.
 
 ![Healthify Me](screenshots/helthify.jpeg)
 
+<img src="screenshots/helthify.jpeg" width="300" />
+
+
 
 ### 🌐 Web Integration
 Check out our [web app](https://deepscan-5617d.web.app/) for product rankings and more!
 
-![Healthify Me](screenshots/web_app_capture.PNG)
+<img src="screenshots/web_app_capture.PNG" width="300" />
 
 ## 📸 Screenshots
 

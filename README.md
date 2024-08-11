@@ -92,4 +92,4 @@ Check out our [web app](https://deepscan-5617d.web.app/) for product rankings an
 
 ---
 
-Made with ❤️ by [Saurav Ganguly (Developer) / Anishmeta Mitra (UI / UX Degisner)]
+Made with ❤️ by [Saurav Ganguly (Developer) / Anishmeta Mitra (UI / UX Designer)]

@@ -65,7 +65,7 @@ Get homemade recipes to recreate products healthily.
 ### 🌐 Web Integration
 Check out our [web app](https://deepscan-5617d.web.app/) for product rankings and more!
 
-<img src="screenshots/web_app_capture.PNG" width="300" />
+<img src="screenshots/web_app_capture.PNG" width="500" />
 
 ## 📸 Screenshots
 

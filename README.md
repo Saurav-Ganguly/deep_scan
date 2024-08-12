@@ -53,6 +53,11 @@ Get detailed instructions on:
 
 <img src="screenshots/how_to_use.jpeg" width="300" />
 
+### 📖 Chat-With-Your-Product
+Chat with your product and get your queries solved.
+
+<img src="screenshots/chat_product.jpeg" width="300" />
+
 ### 🔬 Advanced Analyses
 - Ingredient deep dive: Side effects, regulatory compliance, and more
 - Ecological impact: Packaging, recyclability, carbon footprint, and sustainability metrics
@@ -65,11 +70,8 @@ Get homemade recipes to recreate products healthily.
 ### 🌐 Web Integration
 Check out our [web app](https://deepscan-5617d.web.app/) for product rankings and more!
 
-<img src="screenshots/web_app_capture.PNG" width="500" />
+<img src="screenshots/web_app_capture.PNG" width="800" />
 
-## 📸 Screenshots
-
-[Insert your app screenshots here]
 
 ## 🛠️ Technologies Used
 

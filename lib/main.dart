@@ -1,24 +1,28 @@
-import 'package:camera/camera.dart';
+//flutter
 import 'package:flutter/material.dart';
+
+//packages
+import 'package:camera/camera.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:firebase_core/firebase_core.dart';
+
+//my imports
 import 'package:deep_scan/constants.dart';
 import 'package:deep_scan/screens/camera_screen.dart';
 import 'package:deep_scan/screens/homepage_screen.dart';
 import 'package:deep_scan/screens/scan_screen.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:speech_to_text/speech_to_text.dart';
 import 'firebase_options.dart';
 
 void main() async {
-  // Ensure that plugin services are initialized
   WidgetsFlutterBinding.ensureInitialized();
-  // Obtain a list of available cameras
-  //load env file
 
+  //load api key from env
   await dotenv.load(fileName: ".env");
 
+  //load cameras
   final cameras = await availableCameras();
 
+  //load firebase
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
@@ -35,7 +39,6 @@ class MyApp extends StatelessWidget {
   final List<CameraDescription> cameras;
   const MyApp({super.key, required this.cameras});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

@@ -30,7 +30,6 @@ class HomepageScreen extends StatelessWidget {
           const SizedBox(
             height: 8,
           ),
-
           Container(
             height: 150,
             padding: const EdgeInsets.all(5),
@@ -143,60 +142,10 @@ class HomepageScreen extends StatelessWidget {
               ),
             ],
           ),
-
-          Container(
+          const SizedBox(
             height: 200,
             child: ScanWidget(),
           ),
-          // Text(
-          //   'My Section',
-          //   style: GoogleFonts.poppins(
-          //     color: AppColors.textColor,
-          //     fontSize: 30,
-          //     fontWeight: FontWeight.bold,
-          //   ),
-          // ),
-
-          // Row(
-          //   children: [
-          //     const Icon(Icons.emoji_events),
-          //     const SizedBox(
-          //       width: 10,
-          //     ),
-          //     Text(
-          //       'Leaderboards',
-          //       style: GoogleFonts.poppins(
-          //         color: AppColors.textColor,
-          //         fontSize: 18,
-          //         fontWeight: FontWeight.bold,
-          //       ),
-          //     ),
-          //   ],
-          // ),
-          // SizedBox(
-          //   height: 300,
-          //   child: ListView.builder(
-          //     itemCount: companies.length,
-          //     itemBuilder: (ctx, id) {
-          //       var company = companies[id];
-          //       return ListTile(
-          //         leading: CircleAvatar(
-          //           backgroundColor:
-          //               percentColor(company.averageHealthRating),
-          //         ),
-          //         title: Text(company.name),
-          //         subtitle: LinearProgressIndicator(
-          //           value: company.averageHealthRating / 100,
-          //           backgroundColor: Colors.grey,
-          //           valueColor: AlwaysStoppedAnimation<Color>(
-          //             percentColor(company.averageHealthRating),
-          //           ),
-          //         ),
-          //         trailing: Text('${company.averageHealthRating} %'),
-          //       );
-          //     },
-          //   ),
-          // )
         ],
       ),
     );

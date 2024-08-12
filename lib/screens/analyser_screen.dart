@@ -1,5 +1,8 @@
 import 'package:camera/camera.dart';
+import 'package:deep_scan/services/chat_service.dart';
 import 'package:deep_scan/services/firebase_service.dart';
+import 'package:deep_scan/services/speech_service.dart';
+import 'package:deep_scan/widgets/chat_overlay_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
@@ -23,6 +26,7 @@ class AnalyserScreen extends StatefulWidget {
   });
   // images to be processed
   final List<XFile> images;
+
   @override
   State<AnalyserScreen> createState() => _AnalyserScreenState();
 }
@@ -41,10 +45,15 @@ class _AnalyserScreenState extends State<AnalyserScreen> {
   Recipe? recipe;
   bool isLoading = false;
   bool canTalk = false;
+  bool _showChatOverlay = false;
+  late ChatService _chatService;
+  late SpeechService _speechService;
+
   @override
   void initState() {
     super.initState();
     _initializeData();
+    _initializeSpeechService();
   }
 
   Future<void> _initializeData() async {
@@ -74,6 +83,14 @@ class _AnalyserScreenState extends State<AnalyserScreen> {
       _initializeNutrient();
       _initializeHowTo();
     }
+  }
+
+  Future<void> _initializeSpeechService() async {
+    _speechService = SpeechService();
+    bool speechInitialized = await _speechService.initializeSpeech();
+    print('Speech recognition initialized: $speechInitialized');
+    _chatService =
+        ChatService(geminiService, _speechService, product?.name ?? '');
   }
 
   Future<void> _initializeIngredientAnalysis() async {
@@ -340,13 +357,30 @@ class _AnalyserScreenState extends State<AnalyserScreen> {
       child: Scaffold(
         floatingActionButton: canTalk
             ? FloatingActionButton(
-                onPressed: () {},
+                onPressed: () {
+                  setState(() {
+                    _showChatOverlay = !_showChatOverlay;
+                  });
+                },
                 backgroundColor: AppColors.myPurple,
                 foregroundColor: Colors.white,
-                child: const Icon(Icons.star_border),
+                child: Icon(_showChatOverlay ? Icons.close : Icons.mic),
               )
             : null,
-        body: onLoadData(),
+        body: Stack(
+          children: [
+            onLoadData(),
+            if (_showChatOverlay)
+              ChatOverlayWidget(
+                chatService: _chatService,
+                onClose: () {
+                  setState(() {
+                    _showChatOverlay = false;
+                  });
+                },
+              ),
+          ],
+        ),
       ),
     );
   }

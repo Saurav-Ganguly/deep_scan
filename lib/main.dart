@@ -6,6 +6,7 @@ import 'package:deep_scan/screens/homepage_screen.dart';
 import 'package:deep_scan/screens/scan_screen.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:speech_to_text/speech_to_text.dart';
 import 'firebase_options.dart';
 
 void main() async {

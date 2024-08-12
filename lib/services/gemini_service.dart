@@ -153,26 +153,6 @@ class GeminiService {
     }
   }
 
-  // Future<String?> findProduct(String prompt) async {
-  //   try {
-  //     final findProduct = Content.text(prompt);
-  //     var response = await chat.sendMessage(findProduct);
-
-  //     if (response.text == null) {
-  //       throw Exception('No response from Gemini API');
-  //     }
-
-  //     try {
-  //       final data = response.text!;
-  //       return data;
-  //     } catch (e) {
-  //       return null;
-  //     }
-  //   } catch (e) {
-  //     return null;
-  //   }
-  // }
-
   Future<List<Ingredient>?> getIngredients(String prompt) async {
     try {
       final ingredientPrompt = Content.text(prompt);
@@ -226,6 +206,24 @@ class GeminiService {
       }
     } catch (e) {
       return null;
+    }
+  }
+
+  Future<String> chatAboutProduct(String query, String productName) async {
+    try {
+      final chatPrompt = Content.text(
+          "Now you should start a normal chat, give responses like a normal human being, which can directly be read by the text to speech tool. Keep the responses short and do not use * or other special character in the chat.");
+      chat.sendMessage(chatPrompt);
+      final chatQuery = Content.text("Question about $productName: $query");
+      var response = await chat.sendMessage(chatQuery);
+
+      if (response.text == null) {
+        throw Exception('No response from Gemini API');
+      }
+
+      return response.text!;
+    } catch (e) {
+      return "I'm sorry, I couldn't process that question. Can you try asking in a different way?";
     }
   }
 

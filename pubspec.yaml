@@ -38,13 +38,14 @@ dependencies:
   image_picker: ^1.1.2
   google_fonts: ^6.2.1
   camera: ^0.10.5+2
-  flutter_tts: ^3.7.0
   flutter_markdown: ^0.7.3
   uuid: ^4.4.2
-  speech_to_text: ^6.6.0
   firebase_core: ^2.24.2
   cloud_firestore: ^4.14.0
   flutter_dotenv: ^5.1.0
+  speech_to_text: ^6.6.2
+  flutter_tts: ^3.6.3
+  permission_handler: ^10.2.0
 
 dev_dependencies:
   flutter_test:

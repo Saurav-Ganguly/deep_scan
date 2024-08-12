@@ -14,7 +14,7 @@ String URL =
     'https://images.unsplash.com/photo-1528750596806-ff12e21cda04?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
 
 Color ingredientColor(int val) {
-  if (val > 7) {
+  if (val > 6) {
     return AppColors.myRed;
   } else if (val > 4) {
     return AppColors.myYellow;
@@ -24,9 +24,9 @@ Color ingredientColor(int val) {
 }
 
 Color percentColor(int val) {
-  if (val > 70) {
+  if (val > 85) {
     return AppColors.myGreen;
-  } else if (val > 40) {
+  } else if (val > 60) {
     return AppColors.myYellow;
   } else {
     return AppColors.myRed;

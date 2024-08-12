@@ -7,6 +7,101 @@ Instructions:
 - For icon/emoji fields, use a single Unicode character that can be directly displayed.
 - IMPORTANT: Always provide a value for harmfulness_percentage and ecological_harmfulness_percentage. If you cannot determine an exact percentage based on the available information, provide your best estimate based on similar products or general knowledge of the product type.
 - IMPORTANT : JUST GIVE ME THE JSON OBJECT - NO TEXT ATTACHED AT THE START OR IN THE END
+
+How to evaluate ingredients in a product:
+> The ingredients on any product are mentioned in order of their quantity.
+
+> For consumables like Food Items / Supplements, if the food item consists of following ingredient in their top 3 ingredint list, then rate the product low i.e. more harmful:
+  Artificial Sweeteners
+  * Aspartame: Linked to headaches, digestive issues, and neurological problems.
+  * Sucralose: Potentially harmful to gut bacteria.
+  * Saccharin: Some studies link it to bladder cancer.
+  Preservatives
+  * Sodium Benzoate: Can react with vitamin C to form benzene, a carcinogen.
+  * Potassium Sorbate: May cause allergic reactions in some individuals.
+  * Nitrites/Nitrates: Found in processed meats, linked to cancer risk.
+  Artificial Colors
+  * Tartrazine (Yellow #5): Associated with hyperactivity in children.
+  * Sunset Yellow (Yellow #6): May trigger allergic reactions.
+  * Red 40: Linked to hyperactivity and allergies.
+  Flavor Enhancers
+  * Monosodium Glutamate (MSG): Can cause headaches, nausea, and other symptoms in sensitive individuals.
+  * Hydrolyzed Vegetable Protein: Often contains hidden MSG.
+  Trans Fats
+  * Partially Hydrogenated Oils: Linked to heart disease and other health issues.
+  Refined Grains
+  * Maida (Refined Wheat Flour): Lack of fiber and nutrients.
+  * White Rice: Nutrient-deficient compared to brown rice.
+  Excessive Sugars
+  * High Fructose Corn Syrup: Linked to obesity, diabetes, and liver problems.
+  * Refined Sugar: Provides empty calories and contributes to weight gain.
+  Artificial Flavorings
+  * Diacetyl: Linked to respiratory diseases.
+  * Artificial Vanilla: May contain harmful chemicals.
+  Thickening Agents
+  * Carrageenan: May cause digestive issues.
+  Processed Meats
+  * Sausages, bacon, ham: High in sodium, saturated fat, and preservatives.
+  Dairy Products (for lactose intolerant individuals)
+  * Lactose: Can cause digestive discomfort.
+  Excessive Sodium
+  * Sodium: Contributes to high blood pressure and other health issues.
+  Palm Oil
+  * Palm Oil: Often linked to deforestation and unhealthy fats.
+  Hydrogenated Oils
+  * Hydrogenated Oils: Increase bad cholesterol and contribute to heart disease.
+  Added Sugars
+  * Hidden Sugars: Check for various sugar names in ingredient lists.
+  Excessive Caffeine
+  * Caffeine: Can lead to insomnia, anxiety, and digestive problems in excess.
+  Artificial Sweeteners in Supplements
+  * Maltitol, Sorbitol, Xylitol: Can cause digestive issues.
+  Unnecessary Fillers in Supplements
+  * Magnesium Stearate, Silicon Dioxide: May reduce absorption of nutrients.
+  Herbal Supplements (without proper research)
+  * Unregulated Herbs: Potential for side effects and interactions with medications.
+  Excessive Protein Supplements
+  * Protein Overload: Can strain kidneys and liver.
+
+> For cosmetics, if the product consists of following ingredint in their top 3 ingredient list, then rate the product low i.e. more harmful:
+  Preservatives
+  * Parabens: Linked to hormone disruption.
+  * Formaldehyde and formaldehyde releasers: Carcinogenic.
+  * Triclosan: Antibacterial agent with potential hormonal effects.
+  Synthetic Fragrances
+  * Phthalates: Disrupt hormones.
+  * Musk compounds: Potential allergens and endocrine disruptors.
+  Skin Irritants
+  * Sodium Lauryl Sulfate (SLS) and Sodium Laureth Sulfate (SLES): Strong detergents that can dry out skin.
+  * Synthetic dyes: Can cause allergies and skin irritation.
+  * Mineral oil: Can clog pores.
+  * Petrolatum: Can trap impurities.
+  * Alcohol (denatured): Drying and irritating.
+  Potential Toxins
+  * Lead: Accumulates in the body, linked to various health issues.
+  * Mercury: Neurotoxin.
+  * Arsenic: Carcinogenic.
+  * Aluminum: Linked to neurological disorders.
+  Other Concerns
+  * Polyethylene Glycol (PEG): Can contaminate with ethylene oxide.
+  * Diethanolamine (DEA), Triethanolamine (TEA): Can form nitrosamines.
+  * Butylated hydroxyanisole (BHA) and Butylated hydroxytoluene (BHT): Potential endocrine disruptors.
+  * Retinyl Palmitate: May increase sun sensitivity.
+  * Talc: Contamination with asbestos is a concern.
+  * Oxybenzone and Octinoxate: Sunscreen ingredients linked to hormone disruption and coral reef damage.
+  Emerging Concerns
+  * Microbeads: Environmental pollutants.
+  * Nano-particles: Potential health risks.
+  * Silicones: Can clog pores and be environmentally persistent.
+  * Synthetic fragrances: Linked to allergies and respiratory issues.
+  * Artificial colors: Potential allergens and irritants.
+  Additional Considerations
+  * Hydroquinone: Skin lightening agent with potential side effects.
+  * Hydrocortisone: Steroid with potential long-term skin damage.
+  * Triclocarban: Antibacterial agent with potential hormonal effects.
+  * Methylisothiazolinone (MIT) and Methylchloroisothiazolinone (CMIT): Strong preservatives linked to allergies.
+  * Cocamide DEA: Can form nitrosamines.
+
 Questions to answer:
 
 1 If the product is not related to FMCG / Cosmetics / Supplements / Pharma (medicine) give a false value.
@@ -18,6 +113,7 @@ Questions to answer:
 7. What is the country of manufacture?
 8. What is the flag of the manufacturing country? (Provide as an icon/emoji)
 9. What is the percentage of harmfulness of the product based on the ingredients used? (HIGHER PERCENTAGE MEANS LESS HARMFUL)
+  i) Use your your general knowledge and the above mentioned instructions to calculate the harmfulness of a product.
 10. What is the percentage of ecological harmfulness of the product? (HIGHER PERCENTAGE MEANS LESS ECOLOGICALLY HARMFUL)
 
 For questions 9 and 10:
@@ -70,12 +166,13 @@ Based on the product images provided earlier, analyze all the ingredients in the
 2. Quantity of the ingredient (if available)
 3. Brief comments on the ingredient's purpose or effects
 4. Harmfulness factor of the ingredient (scale of 0-10, where 0 is least harmful and 10 is most harmful)
+  i) Use your your general knowledge and the above mentioned instructions to calculate the harmfulness of an ingredient.
 5. A healthier alternatives to the ingredient (if applicable)
 6. Potential allergies or sensitivities associated with the ingredient
 
 Instructions:
 - Provide your response ONLY in the specified JSON format.
-- Include all ingredients listed on the product.
+- Include all ingredients listed on the product in the order as mentioned on the packaging.
 - If information for a particular field is not available, use null.
 - For the harmfulness factor, always provide a number between 0 and 10.
 - If a healthier alternative is not applicable or necessary, use null for that field.
